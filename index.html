@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login Authentication System</title>
+
+<style>
+
+body{
+font-family: Arial;
+background-color:#f2f2f2;
+text-align:center;
+margin-top:100px;
+}
+
+.container{
+width:300px;
+margin:auto;
+padding:20px;
+background:white;
+border-radius:10px;
+box-shadow:0 0 10px gray;
+}
+
+input{
+width:90%;
+padding:8px;
+margin:5px;
+}
+
+button{
+padding:8px 20px;
+margin:5px;
+background:#007BFF;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Login Authentication System</h2>
+
+<div class="container">
+
+<input type="text" id="username" placeholder="Enter Username"><br>
+
+<input type="password" id="password" placeholder="Enter Password"><br>
+
+<button onclick="register()">Register</button>
+<button onclick="login()">Login</button>
+
+<p id="message"></p>
+
+</div>
+
+<script>
+
+let users = {};
+
+function register(){
+
+let username = document.getElementById("username").value;
+let password = document.getElementById("password").value;
+
+if(users[username]){
+document.getElementById("message").innerHTML="Username already exists!";
+}
+else{
+users[username]=password;
+document.getElementById("message").innerHTML="Registration Successful!";
+}
+
+}
+
+function login(){
+
+let username = document.getElementById("username").value;
+let password = document.getElementById("password").value;
+
+if(users[username] && users[username]==password){
+
+document.getElementById("message").innerHTML="Login Successful! Welcome "+username;
+
+}
+else{
+
+document.getElementById("message").innerHTML="Invalid Username or Password";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
